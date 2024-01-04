@@ -1,0 +1,250 @@
+body {
+    font-family: 'Arial', sans-serif;
+    /* 選擇一個清晰易讀的字體 */
+    line-height: 1.6;
+    /* 增加行高，提高可讀性 */
+    overflow-x: hidden;
+    /* 禁用水平捲軸 */
+    margin: 0;
+    /* 清除 body 的 margin */
+}
+
+header {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('./images/GROVER-sample-fake-news-formatted.png');
+    /* 使用原先的封面圖片 */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    position: fixed;
+    width: 100%;
+    /* 添加這行以確保封面圖片寬度擴展到整個視窗 */
+    text-align: center;
+    /* 文字居中 */
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.banner {
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 55%;
+    text-align: center;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    margin-left: 50px;
+}
+
+main {
+    padding-top: 100vh;
+    /* 與封面高度相同的 padding-top */
+    margin-top: -50px;
+    position: relative;
+    z-index: 1;
+    /* 將內文的 z-index 設為比封面更高，使其能夠覆蓋封面 */
+    min-height: 100vh;
+    /* 最小高度設為 100vh */
+    box-sizing: border-box;
+    /* 盒模型設定為 border-box，包括 padding 在內的尺寸不再影響 min-height 的計算 */
+}
+
+.content {
+    position: absolute;
+    z-index: 1;
+    background-color: #fff;
+    padding: 30px;
+    /* 增加內容區域的內邊距 */
+    margin: 0 30px;
+    /* 調整 margin-top 為 0，以免多餘的空白 */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* 添加陰影效果 */
+    transition: margin-top 0.3s;
+    /* 提供動畫效果 */
+}
+
+.content h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+/* 調整段落的行高 */
+.content p {
+    line-height: 1.6;
+}
+
+nav {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 添加陰影效果 */
+    background-color: #f2f2f2;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 3;
+    /* 比封面圖片的 z-index 更高 */
+    transition: background-color 0.3s;
+}
+
+.navbar-brand {
+    color: #fff;
+    /* 導覽列標題文字顏色 */
+    font-weight: bold;
+    /* 加粗字體 */
+}
+
+.nav-title {
+    margin-left: 50px;
+    text-align: left;
+    color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: right;
+    font-weight: 600;
+}
+
+nav li a {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+    /* 需要設置相對位置，以便底線相對於按鈕定位 */
+    transition: color 0.3s;
+    /* 添加漸變效果 */
+}
+
+nav li a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: skyblue;
+    /* 底線顏色 */
+    transition: width 0.3s ease-in-out;
+    /* 動畫效果 */
+}
+
+nav li a:hover:after {
+    width: 100%;
+    /* 底線寬度 100% 以實現向右擦去的效果 */
+}
+
+nav li a:hover {
+    color: #fff;
+    /* 懸停時文字顏色 */
+    background-color: #2980b9;
+    /* 懸停時背景顏色 */
+}
+
+/* Hide the navbar when the user scrolls down */
+nav.hide {
+    top: -50px;
+}
+
+/* 新增樣式，用於向上滾動時收合導覽列 */
+nav.scroll-up {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.left {
+    width: 50%;
+    padding-right: 10px;
+}
+
+.right {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.image-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.image-container p {
+    text-align: center;
+    font-style: italic;
+    font-size: 14px;
+}
+
+hr {
+    clear: both;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.bottom {
+    border-width: 5px;
+}
+
+button {
+    background-color: #4285f4;
+    /* 使用較淡的顏色，可根據需要調整 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px grey;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #357ae8;
+    /* 懸停時使用較深的顏色，可根據需要調整 */
+    color: #fff;
+}
+
+
+#reference {
+    font-size: small;
+}
+
+#edit {
+    text-align: center;
+    font-style: italic;
+}
